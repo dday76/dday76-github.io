@@ -1,0 +1,17 @@
+---
+title: "Plotly Locations"
+author: "Jason Torpy"
+date: "November 23, 2017"
+output: ioslides_presentation
+---
+
+# MT Cars Weight and Displacement (color)
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+library(plotly)
+library(dplyr)
+
+plot_ly(x = mtcars$wt, y = mtcars$mpg, z = mtcars$hp, color=factor(mtcars$cyl),size=I(mtcars$disp*5),text = ~paste('Weight:', mtcars$wt, '<br>Displacement:', mtcars$disp, '<br>MPG:', mtcars$mpg,
+                           '<br>HP:', mtcars$hp)) %>%
+  layout(title='mtcars consolidated data with 5 dimensions: 3 axes, size, and color -- Nov 23, 2017')
+
+```
